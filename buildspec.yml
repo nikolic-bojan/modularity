@@ -19,10 +19,10 @@ phases:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 --self-contained false Api/Api.csproj
+      - dotnet publish -c Release -o ./publish -r linux-x64 --self-contained false Api/Api.csproj
       
 artifacts:
   files:
     - '**/*'
-  base-directory: ./bin/Release/netcoreapp5.0/linux-x64/publish/
+  base-directory: ./publish/
   discard-paths: no
